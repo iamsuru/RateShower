@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rate Shower</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="item">
+        <label for="value">Enter Amount</label><br />
+        <input type="text" id="value" /><br /><br /><br />
+        <label id="result"></label>
+      </div>
+    </div>
+  </body>
+</html>
+
+<script>
+  const inputTag = document.getElementById("value");
+  const resultLBL = document.getElementById("result");
+  let amount = "";
+  let maxLen = 1;
+  inputTag.addEventListener("input", function () {
+    let currentChar = inputTag.value.toLowerCase();
+    let len = currentChar.length;
+    console.log(len);
+    if (maxLen > len) {
+      inputTag.value = ''
+      maxLen = 0
+      amount = ''
+      resultLBL.innerHTML= ''
+    } else {
+      maxLen = maxLen + 1;
+      let val = len - 1;
+      switch (currentChar.charAt(val)) {
+        case "a":
+          amount = amount + 1;
+          break;
+        case "b":
+          amount = amount + 2;
+          break;
+        case "c":
+          amount = amount + 3;
+          break;
+        case "d":
+          amount = amount + 4;
+          break;
+        case "e":
+          amount = amount + 5;
+          break;
+        case "f":
+          amount = amount + 6;
+          break;
+        case "g":
+          amount = amount + 7;
+          break;
+        case "h":
+          amount = amount + 8;
+          break;
+        case "i":
+          amount = amount + 9;
+          break;
+        case "0":
+          amount = amount + 0;
+          break;
+        default:
+          break;
+      }
+    }
+    resultLBL.textContent = "Rs. " + amount;
+  });
+</script>
+
+<style>
+  * {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+  }
+  .container {
+    display: flex;
+    flex-direction: row;
+    background-image: url(./portrait_background.png);
+    background-size: cover; /* Make the background image responsive */
+    background-repeat: no-repeat; /* Prevent image repetition */
+    background-position: center center; /* Center the background image */
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+  }
+  .item {
+    text-align: center;
+  }
+  input {
+    margin-top: 20px;
+    width: 220px;
+    height: 50px;
+    border-radius: 10px;
+  }
+  label {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size: 25px;
+  }
+</style>
